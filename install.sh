@@ -3,11 +3,12 @@
 set -e
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
-    chmod u+x nvim.appimage
-    ./nvim.appimage --appimage-extract
-    sudo mv ./squashfs-root /usr/lib/nvim
-    sudo ln -s /usr/lib/nvim/AppRun /usr/bin/nvim
+    curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
+    tar -xzvf nvim-linux64.tar.gz
+    cd nvim-linux64
+    sudo cp -R share/nvim /usr/share
+    sudo cp -R lib/nvim /lib
+    sudo cp -R bin/nvim /bin
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     brew install nvim
 else
