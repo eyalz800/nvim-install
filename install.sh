@@ -3,7 +3,7 @@
 set -e
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    curl -LO https://github.com/neovim/neovim/releases/stable/download/nvim-linux64.tar.gz
+    curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz
     tar -xzvf nvim-linux64.tar.gz
     cd nvim-linux64
     sudo cp -R share/nvim /usr/share
