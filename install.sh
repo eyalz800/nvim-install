@@ -3,6 +3,7 @@
 set -e
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    sudo DEBIAN_FRONTEND=noninteractive apt install -y curl
     curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz
     tar -xzvf nvim-linux64.tar.gz
     cd nvim-linux64
