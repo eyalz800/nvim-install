@@ -4,9 +4,17 @@ set -e
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     sudo DEBIAN_FRONTEND=noninteractive apt install -y curl
-    curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz
-    tar -xzvf nvim-linux64.tar.gz
-    cd nvim-linux64
+    arch=$(uname -m)
+
+    if [[ "$arch" == "x86_64" ]]; then
+        curl -fLo nvim.tar.gz https://github.com/neovim/neovim/releases/download/v0.10.4/nvim-linux-x86_64.tar.gz
+    elif [[ "$arch" == "aarch64" ]]; then
+        curl -fLo nvim.tar.gz https://github.com/neovim/neovim/releases/download/v0.10.4/nvim-linux-arm64.tar.gz
+    fi
+
+    tar -xzvf nvim.tar.gz
+    rm nvim.tar.gz
+    cd nvim*
     sudo cp -R share/nvim /usr/share
     sudo cp -R lib/nvim /lib
     sudo cp -R bin/nvim /bin
