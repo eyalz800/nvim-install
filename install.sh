@@ -7,9 +7,9 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     arch=$(uname -m)
 
     if [[ "$arch" == "x86_64" ]]; then
-        curl -fLo nvim.tar.gz https://github.com/neovim/neovim/releases/download/v0.10.4/nvim-linux-x86_64.tar.gz
+        curl -fLo nvim.tar.gz https://github.com/neovim/neovim/releases/download/v0.11.3/nvim-linux-x86_64.tar.gz
     elif [[ "$arch" == "aarch64" ]]; then
-        curl -fLo nvim.tar.gz https://github.com/neovim/neovim/releases/download/v0.10.4/nvim-linux-arm64.tar.gz
+        curl -fLo nvim.tar.gz https://github.com/neovim/neovim/releases/download/v0.11.3/nvim-linux-arm64.tar.gz
     fi
 
     tar -xzvf nvim.tar.gz
