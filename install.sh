@@ -23,9 +23,13 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     rm nvim.tar.gz
     cd nvim*
 
-    sudo cp -R share/nvim /usr/share
-    sudo cp -R lib/nvim /lib
-    sudo cp -R bin/nvim /bin
+    sudo rm -rf /usr/local/share/nvim
+    sudo rm -rf /usr/local/lib/nvim
+    sudo rm -rf /usr/local/bin/nvim
+
+    sudo cp -R share/nvim /usr/local/share
+    sudo cp -R lib/nvim /usr/local/lib
+    sudo cp -R bin/nvim /usr/local/bin
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     if ! command -v curl >/dev/null 2>&1; then
         brew install curl
